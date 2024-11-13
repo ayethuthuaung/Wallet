@@ -2,25 +2,26 @@ package com.training.dat.Wallet.domain.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class InvestorAccountCreateDto {
-    @NotBlank(message = "Investor Account Name is required")
-    @Size(max = 50, message = "Investor Account Name must be less than 50")
+
+    @NotBlank(message = "{E100000:Investor Account Name is required}")
+    @Size(max = 50, message = "{E100001:Investor Account Name must be less than 50.}")
     private String investorAccountName;
 
-    @NotBlank(message = "Account Type is required")
+    @NotBlank(message = "{E100000:Account Type is required}")
+    @Pattern(regexp = "1|2", message = "{E100002:Format of Account Type is not correct.}")
     private String accountType;
 
-    @NotBlank(message = "Email is required")
-    @Size(max = 50, message = "Email Address must be less than 50")
-    @Email(message = "Format of Email Address is not correct")
+    @NotBlank(message = "{E100000:Email is required}")
+    @Size(max = 50, message = "{E100001:Email Address must be less than 50.}")
+    @Email(message = "{E100002:Format of Email Address is not correct.}")
     private String email;
 
-    @NotBlank(message = "Date of Birth is required")
-    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "Format of Date of Birth is not correct")
+    @NotBlank(message = "{E100000:Date of Birth is required}")
+    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "{E100002:Format of Date of Birth is not correct.}")
     private String dateOfBirth;
 
     // Getters and Setters

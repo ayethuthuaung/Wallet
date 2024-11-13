@@ -1,17 +1,11 @@
 package com.training.dat.Wallet.domain.dto;
 
-import java.util.List;
-
-public class InvestorAccountDto {
+public class InvestorAccountListDto {
     private String investorAccountId;
     private String investorAccountName;
     private String accountTypeName;
     private String createdDate;
-    private String email;
-    private String dateOfBirth;
-    private List<WalletInfoDto> wallet;
 
-    // Getters and Setters
     public String getInvestorAccountId() {
         return investorAccountId;
     }
@@ -42,29 +36,5 @@ public class InvestorAccountDto {
 
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public List<WalletInfoDto> getWallet() {
-        return wallet;
-    }
-
-    public void setWallet(List<WalletInfoDto> wallet) {
-        this.wallet = wallet;
     }
 }
