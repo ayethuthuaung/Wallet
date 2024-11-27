@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 public class Role {
 
     @Id
-    private Long id;  // Using a fixed ID for predefined roles
+    private Long id; 
 
     @NotBlank(message = "Role Name is required")
     @Column(nullable = false, unique = true, length = 50)

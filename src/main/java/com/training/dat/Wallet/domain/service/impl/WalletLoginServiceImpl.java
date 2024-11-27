@@ -29,17 +29,13 @@ public class WalletLoginServiceImpl implements WalletLoginService {
     public LoginResponseDto authenticateUser(LoginDto loginDto) {
         Optional<User> userOpt = userRepository.findByUserId(loginDto.getUserId());
 
-        // Check if user exists and password matches
         if (userOpt.isEmpty() || !userOpt.get().getPassword().equals(loginDto.getPassword())) {
             throw new ResourceNotFoundException("User Id and password do not match.");
         }
 
         User user = userOpt.get();
-
-        // Generate JWT token
         String authToken = jwtUtil.generateToken(user.getUserId());
 
-        // Build and return the login response
         LoginResponseDto response = new LoginResponseDto();
         response.setUserId(user.getUserId());
         response.setUserName(user.getUserName());

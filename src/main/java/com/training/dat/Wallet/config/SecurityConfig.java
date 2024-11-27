@@ -25,14 +25,9 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
                 		authz -> authz
-                		 .requestMatchers("/api/auth/login", "/swagger-ui.html" ,"swagger-ui/**", "/v3/api-docs/**").permitAll() // Public endpoints
-                         //.requestMatchers("/api/investor-account-list", "/api/investor-account/**", "/api/investor-account", "/api/investor-account/*", "/api/investor-account/**")
-                		 .anyRequest().authenticated() // Protect this endpoint
+                		 .requestMatchers("/api/auth/login","/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                		 .anyRequest().authenticated()
                 )
-                //.requestMatchers("/api/auth/login").permitAll() // Public endpoints
-                //.requestMatchers("/investor-account-list").authenticated() // Protect this endpoint
-                //.and()
-               // .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     );

@@ -28,6 +28,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
+    	String requestPath = request.getRequestURI();
+
+        // Bypass JWT authentication for Swagger paths
+        if (requestPath.startsWith("/api/auth/login") || requestPath.startsWith("/swagger-ui") || requestPath.startsWith("/v3/api-docs")) {
+            chain.doFilter(request, response);
+            return;
+        }
+        
         String authorizationHeader = request.getHeader("Authorization");
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
