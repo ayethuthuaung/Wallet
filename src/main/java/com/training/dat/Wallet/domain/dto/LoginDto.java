@@ -10,7 +10,6 @@ public class LoginDto {
     @NotBlank(message = "{E100000:Password is required}")
     private String password;
 
-    // Getters and Setters
     public String getUserId() {
         return userId;
     }

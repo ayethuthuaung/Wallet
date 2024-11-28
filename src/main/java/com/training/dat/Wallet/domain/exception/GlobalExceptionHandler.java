@@ -20,13 +20,13 @@ public class GlobalExceptionHandler {
         Map<String, String> errorResponse = new HashMap<>();
 
         FieldError error = ex.getBindingResult().getFieldErrors().get(0);
-        String[] parts = error.getDefaultMessage().split(":", 2); // Splits on ":"
+        String[] parts = error.getDefaultMessage().split(":", 2); 
         
         if (parts.length == 2) {
             errorResponse.put("messageCode", parts[0].replace("{", ""));
             errorResponse.put("message", parts[1].replace("}", ""));
         } else {
-            errorResponse.put("messageCode", "E100000"); // Default error code
+            errorResponse.put("messageCode", "E100000");
             errorResponse.put("message", error.getDefaultMessage());
         }
 
@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Map<String, String>> handleDateTimeParseException(DateTimeParseException ex) {
         Map<String, String> errorResponse = new HashMap<>();
-        errorResponse.put("messageCode", "E100002"); // Custom error code for date format issues
+        errorResponse.put("messageCode", "E100002");
         errorResponse.put("message", "Format of Date of Birth is not correct.");
 
         return ResponseEntity.badRequest().body(errorResponse);

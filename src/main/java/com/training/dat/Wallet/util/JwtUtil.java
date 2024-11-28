@@ -20,14 +20,14 @@ public class JwtUtil {
     }
 
     public String generateToken(String userId) {
-        Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userId);
+        Map<String, Object> claims = new HashMap<>();//null
+        return createToken(claims, userId); 
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()
                 .setClaims(claims)
-                .setSubject(subject)
+                .setSubject(subject)//userId
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours expiry
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY.getBytes()) // Use bytes to avoid encoding issues

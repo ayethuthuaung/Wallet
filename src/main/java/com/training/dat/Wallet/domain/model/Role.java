@@ -11,8 +11,7 @@ public class Role {
 
     @Column(nullable = false, unique = true, length = 50)
     private String roleName;
-
-    // Constructors
+    
     public Role() {}
 
     public Role(Long id, String roleName) {
@@ -20,7 +19,6 @@ public class Role {
         this.roleName = roleName;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

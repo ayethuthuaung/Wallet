@@ -14,7 +14,6 @@ public class LoginController {
 
     private final WalletLoginService walletLoginService;
 
-    @Autowired
     public LoginController(WalletLoginService walletLoginService) {
         this.walletLoginService = walletLoginService;
     }
