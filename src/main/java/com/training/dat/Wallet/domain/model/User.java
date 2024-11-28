@@ -9,16 +9,12 @@ import jakarta.validation.constraints.Size;
 public class User {
 
     @Id
-    @NotBlank(message = "User ID is required")
     @Column(nullable = false, unique = true, length = 50)
     private String userId;
 
-    @NotBlank(message = "User Name is required")
     @Column(nullable = false, length = 50)
     private String userName;
 
-    @NotBlank(message = "Password is required")
-    @Size(min = 6, message = "Password must be at least 6 characters long")
     @Column(nullable = false)
     private String password;
 

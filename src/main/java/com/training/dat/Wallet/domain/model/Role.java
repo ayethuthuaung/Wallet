@@ -9,7 +9,6 @@ public class Role {
     @Id
     private Long id; 
 
-    @NotBlank(message = "Role Name is required")
     @Column(nullable = false, unique = true, length = 50)
     private String roleName;
 
