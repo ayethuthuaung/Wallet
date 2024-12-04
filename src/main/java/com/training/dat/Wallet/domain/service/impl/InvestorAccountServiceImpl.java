@@ -43,7 +43,6 @@ public class InvestorAccountServiceImpl implements InvestorAccountService {
         InvestorAccount account = investorAccountRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Investor Account does not exist."));
         
-        // Map account to DTO as before
         InvestorAccountDto dto = new InvestorAccountDto();
         dto.setInvestorAccountId(String.valueOf(account.getInvestorAccountId()));
         dto.setInvestorAccountName(account.getInvestorAccountName());
@@ -122,7 +121,7 @@ public class InvestorAccountServiceImpl implements InvestorAccountService {
                 .collect(Collectors.toList());
     }
 
-    private InvestorAccountListDto mapToListDto(InvestorAccount account) {
+    public InvestorAccountListDto mapToListDto(InvestorAccount account) {
         InvestorAccountListDto dto = new InvestorAccountListDto();
         dto.setInvestorAccountId(account.getInvestorAccountId().toString());
         dto.setInvestorAccountName(account.getInvestorAccountName());
@@ -157,7 +156,7 @@ public class InvestorAccountServiceImpl implements InvestorAccountService {
         return responseDto;
     }
 
-    private InvestorAccountDto mapToResponseDto(InvestorAccount account) {
+    public InvestorAccountDto mapToResponseDto(InvestorAccount account) {
         InvestorAccountDto responseDto = new InvestorAccountDto();
         responseDto.setInvestorAccountId(String.valueOf(account.getInvestorAccountId()));
         responseDto.setInvestorAccountName(account.getInvestorAccountName());

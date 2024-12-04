@@ -10,15 +10,13 @@ public class WalletInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long walletInfoId;
 
-    @NotBlank(message = "Platform Name is required")
     @Column(nullable = false)
     private String platformName;
 
-    @NotBlank(message = "Wallet Address is required")
     @Column(nullable = false)
     private String walletAddress;
     
-    @Column(nullable = true) // Optional if association is only needed for retrieval
+    @Column(nullable = true) 
     private Long investorAccountId;
 
 

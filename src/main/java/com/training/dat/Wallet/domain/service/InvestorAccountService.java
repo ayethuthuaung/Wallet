@@ -11,8 +11,6 @@ import java.util.List;
 public interface InvestorAccountService {
 	InvestorAccountDto getAccountById(Long id);    
 	InvestorAccountDto createAccount(InvestorAccountCreateDto dto);
-    //List<InvestorAccountListDto> getAccounts(String investorAccountId, String investorAccountName, Integer accountType);
-	//InvestorAccountDto updateAccount(Long id, InvestorAccountCreateDto dto);
 	InvestorAccountDto updateAccount(String investorAccountId, InvestorAccountUpdateDto dto);
 	List<InvestorAccountListDto> getAccounts(String investorAccountId, String investorAccountName, Integer accountType);
 	void deleteAccountById(Long investorAccountId);
